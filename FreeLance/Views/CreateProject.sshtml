@@ -1,0 +1,55 @@
+﻿@Master['Master.sshtml']
+
+@Section['Content']
+    <div id="main">
+        <div class="header">
+            <h1>Create New Project</h1>
+        </div>
+
+        <div class="content">
+            <form class="pure-form pure-form-stacked">
+				<fieldset>
+					<legend>Insert Project-data here</legend>
+
+					<label for="title">Project Title</label>
+					<input id="title" type="text" placeholder="Title">
+
+					<label for="subtitle">Subtitle</label>
+					<input id="subtitle" type="text" placeholder="Subtitle">
+
+                    <label for="startdate">Starts on</label>
+					<div class="input-group date">
+                      <input id="startdate" type="text" class="form-control"><span class="input-group-addon"><i class="glyphicon glyphicon-th"></i></span>
+                    </div>
+                    
+                    <label for="enddate">Ends on</label>
+                    <div class="input-group date">
+                      <input id="enddate" type="text" class="form-control"><span class="input-group-addon"><i class="glyphicon glyphicon-th"></i></span>
+                    </div>
+
+                    <label for="hoursalloc">Estimated hours</label>
+					<input id="hoursalloc" type="text" placeholder="37">
+
+					<button type="submit" class="pure-button pure-button-primary">Save project</button>
+				</fieldset>
+			</form>
+
+            <h2 class="content-subhead">Try Resizing your Browser</h2>
+            <p>
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+            </p>
+        </div>
+    </div>
+    <!-- 
+        Datepicker from https://github.com/eternicode/bootstrap-datepicker
+        Setup via http://eternicode.github.io/bootstrap-datepicker/?markup=component&format=dd%2Fmm%2Fyyyy&weekStart=1&startDate=&endDate=&startView=0&minViewMode=0&todayBtn=linked&clearBtn=false&language=en&orientation=auto&multidate=&multidateSeparator=&todayHighlight=on&keyboardNavigation=on&forceParse=on#sandbox 
+    -->
+    <script type="text/javascript">
+        $('.input-group.date').datepicker({
+            format: "dd/mm/yyyy",
+            weekStart: 1,
+            todayBtn: "linked",
+            todayHighlight: true
+        });
+    </script>
+@EndSection
