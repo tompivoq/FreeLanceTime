@@ -32,8 +32,10 @@
 					<li><a href="#">Enter Time</a></li>
 
 					<li class="menu-item-divided">
-						<a href="#">Projects</a>
+						<span>Projects</span>
 					</li>
+                    <li><a href="../projects/create">Create New</a></li>
+                    <li><a href="../projects/list">All Projects</a></li>
 				</ul>
 			</div>
 		</div>

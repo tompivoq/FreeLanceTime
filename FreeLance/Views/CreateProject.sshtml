@@ -7,28 +7,31 @@
         </div>
 
         <div class="content">
-            <form class="pure-form pure-form-stacked">
+            <form class="pure-form pure-form-stacked" method="post">
 				<fieldset>
 					<legend>Insert Project-data here</legend>
 
 					<label for="title">Project Title</label>
-					<input id="title" type="text" placeholder="Title">
+					<input id="title" name="Title" type="text" placeholder="Title">
 
 					<label for="subtitle">Subtitle</label>
-					<input id="subtitle" type="text" placeholder="Subtitle">
+					<input id="subtitle" name="SubTitle" type="text" placeholder="Subtitle">
+
+                    <label for="description">Description</label>
+					<textarea  id="description" name="Description" placeholder="Description"></textarea>
 
                     <label for="startdate">Starts on</label>
 					<div class="input-group date">
-                      <input id="startdate" type="text" class="form-control"><span class="input-group-addon"><i class="glyphicon glyphicon-th"></i></span>
+                      <input id="startdate" name="StartDate" type="text" class="form-control"><span class="input-group-addon"><i class="glyphicon glyphicon-th"></i></span>
                     </div>
                     
                     <label for="enddate">Ends on</label>
                     <div class="input-group date">
-                      <input id="enddate" type="text" class="form-control"><span class="input-group-addon"><i class="glyphicon glyphicon-th"></i></span>
+                      <input id="enddate" name="EndDate" type="text" class="form-control"><span class="input-group-addon"><i class="glyphicon glyphicon-th"></i></span>
                     </div>
 
                     <label for="hoursalloc">Estimated hours</label>
-					<input id="hoursalloc" type="text" placeholder="37">
+					<input id="hoursalloc" name="HoursAllocated" type="text" placeholder="37">
 
 					<button type="submit" class="pure-button pure-button-primary">Save project</button>
 				</fieldset>
