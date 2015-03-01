@@ -1,0 +1,90 @@
+﻿@Master['Master.sshtml']
+
+@Section['Content']
+    <div class="container">
+
+        <div class="header">
+            <h1>Project Details</h1>
+        </div>
+
+        <div class="content">
+            @IfNot.Success
+            <div class="row">
+                <div class="col-md-8 col-md-offset-2">
+                    <div class="alert alert-warning" role="alert">@Model.Message</div>
+                </div>
+            </div>
+            @EndIf
+            @If.Success
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">@!Model.Project.Title (@!Model.Project.Id) <small>@Model.Project.SubTitle</small></h3><a href="../projects/del/@Model.Project.Id" title="Delete this project"><i class="fa fa-trash-o"></i></a>
+                </div>
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="col-md-2"><strong>Client</strong></div><div class="col-md-10"><a href="../clients/@Model.Client.Id">@!Model.Client.CompanyName</a></div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-2"><strong>Creation date</strong></div><div class="col-md-10">@!Model.Project.CreationDate</div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-2"><strong>Start date</strong></div><div class="col-md-10">@!Model.Project.StartDate</div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-2"><strong>End date</strong></div><div class="col-md-10">@!Model.Project.EndDate</div>  
+                    </div>
+                    <div class="row">
+                        <div class="col-md-2"><strong>Hours allocated</strong></div><div class="col-md-10">@!Model.Project.HoursAllocated</div> 
+                    </div>
+                    <div class="row">
+                        <div class="col-md-2"><strong>Hours logged</strong></div><div class="col-md-10">@!Model.HoursSpent</div> 
+                    </div>
+                    <div class="row">
+                        <div class="col-md-2"><strong>Remaining hours</strong></div><div class="col-md-10">@!Model.HoursLeft</div> 
+                    </div>
+                    <div class="row">
+                        <div class="col-md-2"><strong>Description</strong></div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12"><p>@!Model.Project.Description</p></div>
+                    </div>
+                </div>
+            </div>
+
+            <h3>Work logged <a data-toggle="modal" data-target="#timeRegModal" data-project="@Model.Project.Id" href="#" title="Register Time"><i class="fa fa-plus"></i></a></h3>
+            <div class="well">
+                @Each.WorkDone
+                <div class="panel panel-default">
+                  <div class="panel-body">
+                      <div class="row">
+                          <div class="col-md-2">
+                              <strong>Registered on</strong>
+                          </div>
+                          <div class="col-md-8">@Current.RegistrationDate</div>
+                      </div>
+                      <div class="row">
+                          <div class="col-md-2">
+                              <strong>Hours Spent</strong>
+                          </div>
+                          <div class="col-md-8">@Current.HoursSpent</div>
+                      </div>
+                      <div class="row">
+                          <div class="col-md-2">
+                              <strong>Comment</strong>
+                          </div>
+                          <div class="col-md-8"><p>@Current.Comment</p></div>
+                      </div>
+                      <div class="row">
+                          <div class="col-md-2">
+                              <a href="../recordTime/del/@Current.Id" title="Delete time-entry"><i class="fa fa-trash-o"></i></a>
+                          </div>
+                      </div>
+                  </div>
+                </div>
+                @EndEach
+            </div>
+            @EndIf
+        </div>
+    </div>
+@Partial['TimeEntryModal.sshtml'];
+@EndSection

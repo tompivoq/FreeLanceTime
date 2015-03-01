@@ -1,0 +1,55 @@
+﻿@Master['Master.sshtml']
+
+@Section['Content']
+    <div class="container">
+
+        <div class="header">
+            <h1>Create New Project</h1>
+        </div>
+
+        <div class="content">
+            <form method="post" class="form-horizontal">                    
+                <div class="form-group">
+					<label class="col-md-2 control-label" for="companyName">Company Name</label>
+                    <div class="col-md-6"><input class="form-control" id="companyName" name="CompanyName" type="text" placeholder="Company"></div>
+					
+                </div>
+                <div class="form-group">
+                        <label class="col-md-2 control-label" for="address">Description</label>
+					    <div class="col-md-6">
+                            <textarea class="form-control" id="address" name="Address" placeholder="Johnvej 42" rows="4"></textarea>
+					    </div>
+                </div>
+                <div class="form-group">
+					<label class="col-md-2 control-label" for="contact">Contact Name</label>
+                    <div class="col-md-6"><input class="col-md-6 form-control" id="contact" name="ContactName" type="text" placeholder="John Johnson"></div>
+                </div>
+                <div class="form-group">
+					<label class="col-md-2 control-label" for="email">Contact Name</label>
+                    <div class="col-md-6"><input class="col-md-6 form-control" id="email" name="Email" type="email" placeholder="john@johnson.john"></div>
+                </div>
+                <div class="form-group">
+					<label class="col-md-2 control-label" for="website">Website</label>
+                    <div class="col-md-6"><input class="col-md-6 form-control" id="website" name="WebSite" type="url" placeholder="www.johnson.john"></div>
+                </div>
+                <div class="form-group">
+					<label class="col-md-2 control-label" for="cvr">CVR-Number</label>
+                    <div class="col-md-6"><input class="col-md-6 form-control" id="cvr" name="CVR" type="text" placeholder="123456789"></div>
+                </div>
+                <div class="row">
+			        <div class="col-md-2 col-md-offset-2">
+                        <button type="submit" class="btn btn-primary">Save client</button>
+                    </div>
+                </div>
+			</form>
+            @If.Redirect
+            <div class="row top-spacing">
+                <div class="col-md-8 col-md-offset-2">
+                    <div class="alert @Model.CreateSuccess alert-dismissible" role="alert"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>@Model.Message</div>
+                </div>
+            </div>
+            @EndIf
+            
+        </div>
+    </div>
+@EndSection

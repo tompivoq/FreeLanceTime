@@ -1,6 +1,12 @@
 ﻿@Master['Master.sshtml']
 
 @Section['Content']
-	<img src="@Path['~/Content/nancy-logo.png']" alt="Nancy logo" /><br />
-	This view was rendered using the SuperSimpleViewEngine
+<div class="container">
+	<div class="jumbotron col-md-12">
+        <h1>FreeLance Time Management System</h1>
+        <p>Lance is a FreeLancer. He needs to be free some times. FreeLance allows Lance to allocate time for his different projects, and register time he spents on each.</p>
+        <p><a class="btn btn-primary btn-lg" href="../projects/list" role="button"><i class="fa fa-list-ul"></i> View All Projects</a> <a class="btn btn-primary btn-lg" href="../projects/create" role="button"><i class="fa fa-plus"></i> New Project</a></p>
+        <p><a class="btn btn-primary btn-lg" href="../clients/list" role="button"><i class="fa fa-list-ul"></i> View All Clients</a> <a class="btn btn-primary btn-lg" href="../clients/create" role="button"><i class="fa fa-plus"></i> New Client</a></p>
+    </div>
+    </div>
 @EndSection

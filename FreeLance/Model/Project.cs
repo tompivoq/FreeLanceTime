@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Net;
 using System.Web;
+using Nancy;
 
 namespace FreeLance.Model
 {
@@ -15,18 +15,7 @@ namespace FreeLance.Model
         public DateTime StartDate { get; set; }
         public DateTime EndDate { get; set; }
         public float HoursAllocated { get; set; }
-    }
-
-    public class ProjectModel
-    {
-        public List<Project> Projects { get; set; }
-        public String Message { get; set; }
-        public HttpStatusCode StatusCode { get; set; }
-
-        public ProjectModel() {}
-        public ProjectModel(List<Project> p )
-        {
-            this.Projects = p;
-        }
+        public DateTime CreationDate { get; set; }
+        public Client Client { get; set; }
     }
 }

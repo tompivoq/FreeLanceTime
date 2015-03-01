@@ -1,38 +1,55 @@
 ﻿@Master['Master.sshtml']
 
 @Section['Content']
-    <div id="main">
+    <div class="container">
         <div class="header">
             <h1>All Projects</h1>
         </div>
 
-        <div class="content">
-            <table class="pure-table">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="table-responsive">
+            <table class="table table-striped">
                 <thead>
                     <tr>
-                        <th>#</th>
+                        <!--<th>#</th>-->
                         <th>Title</th>
-                        <th>SubTitle</th>
+                        <th>Sub title</th>
                         <th>Description</th>
-                        <th>StartDate</th>
-                        <th>EndDate</th>
-                        <th>HoursAllocated</th>
+                        <th>Client</th>
+                        <th>Starts on</th>
+                        <th>Ends on</th>
+                        <th>Hours allocated</th>
+                        <th>Created on</th>
+                        <th>Actions</th>
                     </tr>
                 </thead>
                 <tbody>
                     @Each.Projects
                     <tr>
-                        <td>@Current.Id</td>
+                        <!--<td>@Current.Id</td>-->
                         <td>@Current.Title</td>
                         <td>@Current.SubTitle</td>
                         <td>@Current.Description</td>
+                        <td><a href="../clients/@Current.Client.Id">@Current.Client.CompanyName</a></td>
                         <td>@Current.StartDate</td>
                         <td>@Current.EndDate</td>
                         <td>@Current.HoursAllocated</td>
+                        <td>@Current.CreationDate</td>
+                        <td>
+                            <ul class="action-col">
+                                <li><a data-toggle="modal" data-target="#timeRegModal" data-project="@Current.Id" href="#" title="Register Time"><i class="fa fa-plus"></i></a></li>
+                                <li><a href="../projects/@Current.Id" title="View Details"><i class="fa fa-info-circle"></i></a></li>
+                            </ul>
+                        </td>
                     </tr>
                     @EndEach
                 </tbody>
             </table>
+                    </div>
+                </div>
         </div>
     </div>
+
+@Partial['TimeEntryModal.sshtml'];
 @EndSection

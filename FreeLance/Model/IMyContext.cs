@@ -7,6 +7,7 @@ namespace FreeLance.Model
     {
         IDbSet<Project> Projects { get; set; }
         IDbSet<TimeEntry> TimeEntries { get; set; }
+        IDbSet<Client> Clients { get; set; } 
 
         int SaveChanges();
         DbEntityEntry Entry(object entity);

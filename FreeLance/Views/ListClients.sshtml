@@ -1,0 +1,52 @@
+﻿@Master['Master.sshtml']
+
+@Section['Content']
+    <div class="container">
+        <div class="header">
+            <h1>All Clients</h1>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="table-responsive">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <!--<th>#</th>-->
+                        <th>Company</th>
+                        <th>Address</th>
+                        <th>Contact</th>
+                        <th>Email</th>
+                        <th>Website</th>
+                        <th>CVR</th>
+                        <th>Created on</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @Each.Clients
+                    <tr>
+                        <!--<td>@Current.Id</td>-->
+                        <td>@Current.CompanyName</td>
+                        <td>@Current.Address</td>
+                        <td>@Current.Client.CompanyName</td>
+                        <td>@Current.Email</td>
+                        <td>@Current.WebSite</td>
+                        <td>@Current.CVR</td>
+                        <td>@Current.CreationDate</td>
+                        <td>
+                            <ul class="action-col">
+                                <li><a href="../clients/@Current.Id" title="View Details"><i class="fa fa-info-circle"></i></a></li>
+                            </ul>
+                        </td>
+                    </tr>
+                    @EndEach
+                </tbody>
+            </table>
+                    </div>
+                </div>
+        </div>
+    </div>
+
+@Partial['TimeEntryModal.sshtml'];
+@EndSection

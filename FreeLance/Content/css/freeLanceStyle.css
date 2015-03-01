@@ -1,0 +1,44 @@
+﻿
+p.error-message {
+    font-family: "monospace";
+    padding-left: 2em;
+}
+
+ul.action-col
+{
+margin: 0;
+padding: 0;
+list-style-type: none;
+text-align: center;
+}
+
+ul.action-col li { display: inline; }
+
+ul.action-col li a
+{
+text-decoration: none;
+padding: .2em 1em;
+color: #FF00008B;
+/*background-color: #036;*/
+}
+
+ul.action-col li a:hover
+{
+color: #FF0000FF;
+/*background-color: #369;*/
+}
+
+.menu-subtitle {
+    color: #FFF;
+    border: medium none;
+    padding: 0.6em 0px 0.6em 0.6em;
+    font-weight: bold;
+}
+
+.label {
+    font-weight: bold;
+}
+
+.top-spacing {
+    margin-top: 1em;
+}

@@ -1,0 +1,64 @@
+﻿
+    <!-- TimeRegistrationModal -->
+    <div class="modal fade" id="timeRegModal" tabindex="-1" role="dialog" aria-labelledby="timeRegModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title" id="timeRegModalLabel">Register Time</h4>
+          </div>
+          <form name="regtimform" id="regtimeform" action="../recordTime/" method="post">
+              <div class="modal-body">
+                    <div class="form-group">
+                        <label for="hoursSpent">Hours spent</label>
+                        <input type="text" class="form-control" name="HoursSpent" id="hoursSpent">
+                    </div>
+                    <div class="form-group">
+                        <label for="comment">Comment</label>
+                        <textarea class="form-control" id="comment" name="Comment" placeholder="What did you work on?"></textarea>
+                    </div>
+                  <input type="hidden" name="projectId" value=""/>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="submit" class="btn btn-primary">Save changes</button>
+              </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    
+    <script type="text/javascript">
+        $('#timeRegModal').on('show.bs.modal', function (event) {
+            var button = $(event.relatedTarget) // Button that triggered the modal
+            var projectId = button.data('project') // Extract info from data-* attributes
+            
+            // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
+            var modal = $(this)
+            modal.find('input[name=projectId]:hidden').val(projectId);
+        })
+
+        //handler for form submit
+        $("#regtimeform").submit(function (e) {
+            var postData = $(this).serializeArray();
+            var projectId = $(this).find("input[name=projectId]:hidden").val();
+            var formURL = $(this).attr("action") + projectId;
+            $.ajax(
+            {
+                url: formURL,
+                type: "POST",
+                data: postData,
+                dataType: "json",
+                success: function (data, textStatus, jqXHR) {
+                    console.log(data);
+                    location.reload(true);
+                },
+                error: function (jqXHR, textStatus, errorThrown) {
+                    //if fails      
+                }
+            });
+            e.preventDefault(); //STOP default action
+            e.unbind(); //unbind. to stop multiple form submit.
+            $('#timeRegModal').modal('hide');
+        });
+    </script>

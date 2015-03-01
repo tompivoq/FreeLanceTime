@@ -68,18 +68,36 @@
     <Reference Include="System.Configuration" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="App_Data\FreeLanceDb.sdf" />
+    <Content Include="App_Data\FreeLanceDb.mdf" />
+    <Content Include="App_Data\FreeLanceDb_log.ldf">
+      <DependentUpon>FreeLanceDb.mdf</DependentUpon>
+    </Content>
+    <Content Include="Content\css\bootstrap\bootstrap-theme.css" />
+    <Content Include="Content\css\bootstrap\bootstrap-theme.min.css" />
+    <Content Include="Content\css\bootstrap\bootstrap.css" />
+    <Content Include="Content\css\bootstrap\bootstrap.min.css" />
     <Content Include="Content\css\datepicker.css" />
     <Content Include="Content\css\datepicker3.css" />
+    <Content Include="Content\css\freeLanceStyle.css" />
     <Content Include="Content\css\side-menu.css" />
     <Content Include="Content\js\bootstrap-datepicker.js" />
+    <Content Include="Content\js\bootstrap\bootstrap.js" />
+    <Content Include="Content\js\bootstrap\bootstrap.min.js" />
+    <Content Include="Content\js\FreeLance.js" />
+    <Content Include="Content\js\locales\bootstrap-datepicker.da.js" />
+    <Content Include="Content\js\locales\bootstrap-datepicker.en-GB.js" />
     <Content Include="Content\js\ui.js" />
     <Content Include="Content\nancy-logo.png" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Bootstrapper.cs" />
+    <Compile Include="ClientModule.cs" />
+    <Compile Include="HtmlUtil.cs" />
     <Compile Include="IndexModule.cs" />
+    <Compile Include="Model\Client.cs" />
     <Compile Include="Model\IMyContext.cs" />
     <Compile Include="Model\MyContext.cs" />
     <Compile Include="Model\Project.cs" />
@@ -96,6 +114,11 @@
     <Content Include="Views\CreateProject.sshtml" />
     <Content Include="Views\Master.sshtml" />
     <Content Include="Views\ListProjects.sshtml" />
+    <Content Include="Views\ProjectDetail.sshtml" />
+    <Content Include="Views\TimeEntryModal.sshtml" />
+    <Content Include="Views\CreateClient.sshtml" />
+    <Content Include="Views\ListClients.sshtml" />
+    <Content Include="Views\ClientDetail.sshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

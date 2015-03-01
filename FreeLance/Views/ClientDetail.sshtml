@@ -1,0 +1,84 @@
+﻿@Master['Master.sshtml']
+
+@Section['Content']
+    <div class="container">
+
+        <div class="header">
+            <h1>Client Details</h1>
+        </div>
+
+        <div class="content">
+            @IfNot.Success
+            <div class="row">
+                <div class="col-md-8 col-md-offset-2">
+                    <div class="alert alert-warning" role="alert">@Model.Message</div>
+                </div>
+            </div>
+            @EndIf
+            @If.Success
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">@!Model.Client.CompanyName (@!Model.Client.Id)</h3>
+                </div>
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="col-md-2"><strong>Address</strong></div>
+                        <div class="col-md-10">@!Model.Client.Address</div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-2"><strong>Main contact</strong></div>
+                        <div class="col-md-10">@!Model.Client.ContactName</div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-2"><strong>Email</strong></div>
+                        <div class="col-md-10">@!Model.Client.Email</div>  
+                    </div>
+                    <div class="row">
+                        <div class="col-md-2"><strong>Website</strong></div>
+                        <div class="col-md-10">@!Model.Client.WebSite</div> 
+                    </div>
+                    <div class="row">
+                        <div class="col-md-2"><strong>CVR</strong></div>
+                        <div class="col-md-10">@!Model.Client.CVR</div> 
+                    </div>
+                    <div class="row">
+                        <div class="col-md-2"><strong>Created on</strong></div>
+                        <div class="col-md-10">@!Model.Client.CreationDate</div> 
+                    </div>
+                </div>
+            </div>
+
+            <h3>Projects</h3>
+            <div class="well">
+                @Each.Projects
+                <div class="panel panel-default">
+                  <div class="panel-body">
+                      <div class="row">
+                          <div class="col-md-2">
+                              <h4><a href="../projects/@Current.Id">@Current.Title</a></h4>
+                          </div>
+                      </div>
+                      <div class="row">
+                          <div class="col-md-2">
+                              Running time
+                          </div>
+                          <div class="col-md-4">
+                              @!Current.StartDate - @!Current.EndDate
+                          </div>
+                      </div>
+                      <div class="row">
+                          <div class="col-md-2">
+                              <strong>Hours Allocated</strong>
+                          </div>
+                          <div class="col-md-8"><p>@Current.HoursAllocated</p></div>
+                          
+                      </div>
+                  </div>
+                </div>
+                @EndEach
+            </div>
+            @EndIf
+        </div>
+    </div>
+@Partial['TimeEntryModal.sshtml'];
+@EndSection

@@ -1,58 +1,72 @@
 ﻿@Master['Master.sshtml']
 
 @Section['Content']
-    <div id="main">
+    <div class="container">
+
         <div class="header">
             <h1>Create New Project</h1>
         </div>
 
         <div class="content">
-            <form class="pure-form pure-form-stacked" method="post">
-				<fieldset>
-					<legend>Insert Project-data here</legend>
-
-					<label for="title">Project Title</label>
-					<input id="title" name="Title" type="text" placeholder="Title">
-
-					<label for="subtitle">Subtitle</label>
-					<input id="subtitle" name="SubTitle" type="text" placeholder="Subtitle">
-
-                    <label for="description">Description</label>
-					<textarea  id="description" name="Description" placeholder="Description"></textarea>
-
-                    <label for="startdate">Starts on</label>
-					<div class="input-group date">
-                      <input id="startdate" name="StartDate" type="text" class="form-control"><span class="input-group-addon"><i class="glyphicon glyphicon-th"></i></span>
+            <form method="post" class="form-horizontal">                    
+                <div class="form-group">
+					<label class="col-md-2 control-label" for="title">Project Title</label>
+                    <div class="col-md-6"><input class="form-control" id="title" name="Title" type="text" placeholder="Title"></div>
+					
+                </div>
+                <div class="form-group">
+					<label class="col-md-2 control-label" for="subtitle">Subtitle</label>
+                    <div class="col-md-6"><input class="col-md-6 form-control" id="subtitle" name="SubTitle" type="text" placeholder="Subtitle"></div>
+					
+                </div>
+                <div class="form-group">
+                    <label class="col-md-2 control-label" for="client">Client</label>
+                    <div class="col-md-6">
+                        <select class="form-control" id="client" name="Client">
+                            @Each.Clients
+                                <option value="@Current.Id">@Current.CompanyName</option>
+                            @EndEach
+                        </select>
                     </div>
-                    
-                    <label for="enddate">Ends on</label>
-                    <div class="input-group date">
-                      <input id="enddate" name="EndDate" type="text" class="form-control"><span class="input-group-addon"><i class="glyphicon glyphicon-th"></i></span>
+                </div>
+                <div class="form-group">
+                        <label class="col-md-2 control-label" for="description">Description</label>
+					    <div class="col-md-6"><textarea class="form-control" id="description" name="Description" placeholder="Description"></textarea></div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-2 control-label" for="startdate">Starts on</label>
+                    <div class="col-md-3">
+					    <div class="input-group">
+                          <input id="startdate" name="StartDate" type="date" class="form-control"><span class="input-group-addon"><i class="glyphicon glyphicon-th"></i></span>
+                        </div>
                     </div>
-
-                    <label for="hoursalloc">Estimated hours</label>
-					<input id="hoursalloc" name="HoursAllocated" type="text" placeholder="37">
-
-					<button type="submit" class="pure-button pure-button-primary">Save project</button>
-				</fieldset>
+                 </div>
+                <div class="form-group">
+                    <label class="col-md-2 control-label" for="enddate">Ends on</label>
+                    <div class="col-md-3">
+                        <div class="input-group">
+                          <input id="enddate" name="EndDate" type="date" class="form-control"><span class="input-group-addon"><i class="glyphicon glyphicon-th"></i></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-2 control-label" for="hoursalloc">Estimated hours</label>
+					<div class="col-md-3"><input class="form-control" id="hoursalloc" name="HoursAllocated" type="number" placeholder="37"></div>
+                </div>
+                <div class="row">
+			        <div class="col-md-2 col-md-offset-2">
+                        <button type="submit" class="btn btn-primary">Save project</button>
+                    </div>
+                </div>
 			</form>
-
-            <h2 class="content-subhead">Try Resizing your Browser</h2>
-            <p>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-            </p>
+            @If.Redirect
+            <div class="row top-spacing">
+                <div class="col-md-8 col-md-offset-2">
+                    <div class="alert @Model.CreateSuccess alert-dismissible" role="alert"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>@Model.Message</div>
+                </div>
+            </div>
+            @EndIf
+            
         </div>
     </div>
-    <!-- 
-        Datepicker from https://github.com/eternicode/bootstrap-datepicker
-        Setup via http://eternicode.github.io/bootstrap-datepicker/?markup=component&format=dd%2Fmm%2Fyyyy&weekStart=1&startDate=&endDate=&startView=0&minViewMode=0&todayBtn=linked&clearBtn=false&language=en&orientation=auto&multidate=&multidateSeparator=&todayHighlight=on&keyboardNavigation=on&forceParse=on#sandbox 
-    -->
-    <script type="text/javascript">
-        $('.input-group.date').datepicker({
-            format: "dd/mm/yyyy",
-            weekStart: 1,
-            todayBtn: "linked",
-            todayHighlight: true
-        });
-    </script>
 @EndSection
